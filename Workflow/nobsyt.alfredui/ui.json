@@ -1,0 +1,159 @@
+{
+  "log": {
+    "level": "all",
+    "internal": true
+  },
+  "bundleid": "com.vitorgalvao.alfred.nobsyt",
+  "variablesconfig": {
+    "channel_url": { "src": "args[0]" },
+    "channel_id": { "default": null },
+    "saved_access": { "default": "public", "persist": true },
+    "saved_stream": { "default": "videos", "persist": true }
+  },
+  "window": {
+    "size": { "width": 650 },
+    "padding": 16,
+    "root": {
+      "type": "view",
+      "layout": "form",
+      "spacing": 8,
+      "components": [
+        {
+          "constraints": { "position": "right" },
+          "type": "label",
+          "text": "URL:",
+          "textalign": "right"
+        },
+        {
+          "id": "urlField",
+          "type": "textfield",
+          "text": "{var:channel_url}",
+          "placeholder": "https://www.youtube.com/…",
+          "focus": true,
+          "focusring": false,
+          "events": [
+            {
+              "triggers": [ "launched", "typingstopped" ],
+              "action": [
+                {
+                  "type": "json",
+                  "src": { "update": { "ids": { "channelLabel": { "text": "Extracting channel ID…", "colour": "secondaryLabelColor" } } } }
+                },
+                {
+                  "type": "script",
+                  "src": "get-channel",
+                  "args": [ "{value:urlField.text}", "{value:accessPicker.selected.value}", "{value:streamPicker.selected.value}" ]
+                }
+              ]
+            },
+            {
+              "triggers": "actioned",
+              "action": {
+                "type": "script",
+                "src": "copy-url",
+                "args": [ "{var:channel_id}", "{value:feedLabel.text}" ]
+              }
+            }
+          ]
+        },
+        {},
+        {
+          "id": "channelLabel",
+          "type": "label",
+          "text": "Waiting for URL…",
+          "colour": "secondaryLabelColor"
+        },
+        {
+          "constraints": { "position": "right" },
+          "type": "label",
+          "text": "Filter:",
+          "textalign": "right"
+        },
+        {
+          "constraints": { "position": "left" },
+          "type": "view",
+          "layout": "inline",
+          "direction": "horizontal",
+          "spacing": 8,
+          "components": [
+            {
+              "id": "accessPicker",
+              "type": "picker",
+              "selected": "{var:saved_access}",
+              "items": [
+                { "text": "Public", "value": "public" },
+                { "text": "Popular", "value": "popular" },
+                { "text": "Member", "value": "member" }
+              ],
+              "events": [{
+                "triggers": "changed",
+                "action": {
+                  "variables": { "saved_access": "{value:self.selected.value}" },
+                  "type": "script",
+                  "src": "gen-feed-url",
+                  "args": [ "{var:channel_id}", "{value:accessPicker.selected.value}", "{value:streamPicker.selected.value}" ]
+                }
+              }]
+            },
+            {
+              "id": "streamPicker",
+              "type": "picker",
+              "selected": "{var:saved_stream}",
+              "items": [
+                { "text": "Videos", "value": "videos" },
+                { "text": "Shorts", "value": "shorts" },
+                { "text": "Live Streams", "value": "live" }
+              ],
+              "events": [{
+                "triggers": "changed",
+                "action": {
+                  "variables": { "saved_stream": "{value:self.selected.value}" },
+                  "type": "script",
+                  "src": "gen-feed-url",
+                  "args": [ "{var:channel_id}", "{value:accessPicker.selected.value}", "{value:streamPicker.selected.value}" ]
+                }
+              }]
+            }
+          ]
+        },
+        {
+          "constraints": { "position": "right" },
+          "type": "label",
+          "text": "Feed:",
+          "textalign": "right"
+        },
+        {
+          "type": "view",
+          "layout": "border",
+          "spacing": 4,
+          "components": [
+            {
+              "constraints": { "region": "centre", "position": "left", "stretch": "horizontal" },
+              "id": "feedLabel",
+              "type": "label",
+              "text": "Waiting for channel ID…",
+              "colour": "secondaryLabelColor"
+            },
+            {
+              "constraints": { "region": "right", "size": 24 },
+              "id": "copyButton",
+              "type": "button",
+              "image": { "type": "symbol", "src": "list.clipboard" },
+              "shortcut": "↩",
+              "tooltip": "Copy Feed URL ↩",
+              "enabled": false,
+              "events": [{
+                "triggers": "actioned",
+                "action": {
+                  "type": "script",
+                  "src": "copy-url",
+                  "args": [ "{var:channel_id}", "{value:feedLabel.text}" ]
+                }
+              }]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

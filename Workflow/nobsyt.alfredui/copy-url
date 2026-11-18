@@ -1,0 +1,12 @@
+#!/bin/zsh --no-rcs
+
+readonly channel_id="${1}"
+readonly url="${2}"
+
+if [[ -z "${channel_id}" ]]
+then
+  printf '{ "sound": { "src": "Frog" }}'
+  exit 0
+fi
+
+printf '{ "finish": { "args": "%s" }}' "${url}"

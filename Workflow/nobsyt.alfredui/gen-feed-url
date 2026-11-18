@@ -1,0 +1,27 @@
+#!/usr/bin/osascript -l JavaScript
+
+function run(argv) {
+  const channelId = argv[0]
+  const access = argv[1] // "public", "popular", "member"
+  const stream = argv[2] // "videos", "shorts", "live"
+
+  const combos = {
+    public:  { videos: "UULF", shorts: "UUSH", live: "UULV", },
+    popular: { videos: "UULP", shorts: "UUPS", live: "UUPV", },
+    member:  { videos: "UUMO", shorts: "UUMS", live: "UUMV" }
+  }
+
+  if (channelId.length === 0) return
+
+  return JSON.stringify({
+    variables: { channel_id: channelId },
+    update: { ids: {
+      channelLabel: { text: `Found channel ID: ${channelId}`, color: "systemGreenColor" },
+      copyButton: { enabled: true },
+      feedLabel: {
+        text: `https://www.youtube.com/feeds/videos.xml?playlist_id=${combos[access][stream]}${channelId.replace(/^UC/, "")}`,
+        colour: "labelColor"
+      },
+    }}
+  })
+}

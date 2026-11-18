@@ -1,0 +1,31 @@
+#!/bin/zsh --no-rcs
+
+# Constants
+readonly url="${1}"
+readonly access="${2}"
+readonly stream="${3}"
+
+# Helpers
+function abort {
+  printf '{
+    "variables": { "channel_id": null },
+    "update": { "ids": {
+      "channelLabel": { "text": "%s", "colour": "%s" },
+      "copyButton": { "enabled": false },
+      "feedLabel": { "text": "Waiting for channel ID…", "colour": "secondaryLabelColor" }
+    }}
+  }' "${1}" "${2}"
+
+  exit 0
+}
+
+# Main
+[[ -n "${url}" ]] || abort 'Waiting for URL…' 'secondaryLabelColor'
+
+[[ "${url}" =~ '^https:\/\/(www\.)?youtube\.com\/' ]] || abort 'Invalid channel. Try the URL for the videos page.' 'systemRedColor'
+
+readonly channel_id="$(curl --silent "${url}" | xmllint --html --xpath 'string(//link[@type="application/rss+xml"]/@href)' - 2> /dev/null | sed 's/.*channel_id=//')"
+
+[[ -n "${channel_id}" ]] || abort 'Invalid channel. Try the URL for the videos page.' 'systemRedColor'
+
+./gen-feed-url "${channel_id}" "${access}" "${stream}"

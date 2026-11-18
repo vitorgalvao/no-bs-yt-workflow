@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.vitorgalvao.alfred.nobsyt</string>
+	<key>connections</key>
+	<dict>
+		<key>48B62426-3186-4BA8-9027-2E89887D968B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B895C188-5447-47EA-A1EB-02F54C77A31A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<true/>
+			</dict>
+		</array>
+		<key>87F4AC8B-8F73-4A28-B45E-A3FC3807ADCC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F7834949-500B-4F72-96B3-80A71CDE1654</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>B895C188-5447-47EA-A1EB-02F54C77A31A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>CBF34A77-B896-4B6E-A33D-2492B0DC0D15</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>7887495F-03B9-4EE4-9772-EA435EC53D97</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>C1477C24-1F98-4F4F-A16D-C9766E5D6C2C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>C1477C24-1F98-4F4F-A16D-C9766E5D6C2C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>CBF34A77-B896-4B6E-A33D-2492B0DC0D15</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>CBF34A77-B896-4B6E-A33D-2492B0DC0D15</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>87F4AC8B-8F73-4A28-B45E-A3FC3807ADCC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Vítor Galvão</string>
+	<key>description</key>
+	<string>Make specialised YouTube RSS feeds</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>No BS YT</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Feed Copied to the Clipboard</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>F7834949-500B-4F72-96B3-80A71CDE1654</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>launchmode</key>
+				<integer>0</integer>
+				<key>path</key>
+				<string>nobsyt.alfredui</string>
+				<key>stackview</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.userinterface.alfredui</string>
+			<key>uid</key>
+			<string>CBF34A77-B896-4B6E-A33D-2492B0DC0D15</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>87F4AC8B-8F73-4A28-B45E-A3FC3807ADCC</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>{var:ui_keyword}</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Grabbing URLs…</string>
+				<key>script</key>
+				<string>function runCommand(...arguments) {
+  const task = $.NSTask.alloc.init
+  const stdout = $.NSPipe.pipe
+
+  task.executableURL = $.NSURL.fileURLWithPath("/usr/bin/env")
+  task.arguments = arguments
+  task.standardOutput = stdout
+  task.launchAndReturnError(false)
+
+  const dataOut = stdout.fileHandleForReading.readDataToEndOfFileAndReturnError(false)
+  const stringOut = $.NSString.alloc.initWithDataEncoding(dataOut, $.NSUTF8StringEncoding).js
+
+  return stringOut
+}
+
+const browserRaw = runCommand($("~/Library/Application Support/Alfred/Automation/Tasks/com.alfredapp.automation.core/safari/.common/tabs-current").stringByExpandingTildeInPath.js,
+  "frontmost_browser", "0", "json")
+
+const clipboardRaw = runCommand("/usr/bin/sqlite3",
+  "-newline", "",
+  $("~/Library/Application Support/Alfred/Databases/clipboard.alfdb").stringByExpandingTildeInPath.js,
+  "SELECT item FROM (SELECT item, MAX(ts) FROM clipboard WHERE dataType = 0 AND item LIKE \"http%\")")
+
+let scriptFilterItems = []
+
+if (browserRaw.length &gt; 0) {
+  const browserParsed = JSON.parse(JSON.parse(browserRaw)["alfredworkflow"]["arg"])
+
+  if (browserParsed.url) scriptFilterItems.push({
+    title: browserParsed.title,
+    subtitle: browserParsed.url,
+    icon: { path: "images/browser.png" },
+    arg: browserParsed.url
+  })
+}
+
+if (clipboardRaw.length &gt; 0) {
+  scriptFilterItems.push({
+    title: "Clipboard URL",
+    subtitle: clipboardRaw,
+    icon: { path: "images/clipboard.png" },
+    arg: clipboardRaw
+  })
+}
+
+if (scriptFilterItems.length === 0) {
+  JSON.stringify({ items: [{
+    title: "No URL found",
+    subtitle: "Did not find a URL in the clipboard or a supported browser",
+    valid: false
+  }]})
+} else {
+  JSON.stringify({ items: scriptFilterItems })
+}</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>skipuniversalaction</key>
+				<true/>
+				<key>subtext</key>
+				<string>{const:alfred_workflow_description}</string>
+				<key>title</key>
+				<string>{const:alfred_workflow_name}</string>
+				<key>type</key>
+				<integer>7</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>48B62426-3186-4BA8-9027-2E89887D968B</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>4</integer>
+						<key>matchstring</key>
+						<string>^https:\/\/(www\.)?youtube\.com\/</string>
+						<key>outputlabel</key>
+						<string>YouTube</string>
+						<key>uid</key>
+						<string>7887495F-03B9-4EE4-9772-EA435EC53D97</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>else</string>
+				<key>hideelse</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>B895C188-5447-47EA-A1EB-02F54C77A31A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>C1477C24-1F98-4F4F-A16D-C9766E5D6C2C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>## Usage
+
+Generate a custom YouTube RSS feed from the most recent URL in your [Clipboard History](https://www.alfredapp.com/help/features/clipboard/) or the URL in the frontmost browser tab via the `nobsyt` keyword.
+
+![Keyword to choose a URL](images/about/keyword.png)
+
+![Showing UI to generate filter](images/about/ui.png)
+
+Set the filter to the types of videos you want to include in the feed and press &lt;kbd&gt;↩&lt;/kbd&gt; to copy it to the clipboard.</string>
+	<key>uidata</key>
+	<dict>
+		<key>48B62426-3186-4BA8-9027-2E89887D968B</key>
+		<dict>
+			<key>xpos</key>
+			<real>60</real>
+			<key>ypos</key>
+			<real>55</real>
+		</dict>
+		<key>87F4AC8B-8F73-4A28-B45E-A3FC3807ADCC</key>
+		<dict>
+			<key>xpos</key>
+			<real>640</real>
+			<key>ypos</key>
+			<real>55</real>
+		</dict>
+		<key>B895C188-5447-47EA-A1EB-02F54C77A31A</key>
+		<dict>
+			<key>xpos</key>
+			<real>265</real>
+			<key>ypos</key>
+			<real>75</real>
+		</dict>
+		<key>C1477C24-1F98-4F4F-A16D-C9766E5D6C2C</key>
+		<dict>
+			<key>xpos</key>
+			<real>375</real>
+			<key>ypos</key>
+			<real>115</real>
+		</dict>
+		<key>CBF34A77-B896-4B6E-A33D-2492B0DC0D15</key>
+		<dict>
+			<key>xpos</key>
+			<real>465</real>
+			<key>ypos</key>
+			<real>55</real>
+		</dict>
+		<key>F7834949-500B-4F72-96B3-80A71CDE1654</key>
+		<dict>
+			<key>xpos</key>
+			<real>820</real>
+			<key>ypos</key>
+			<real>55</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>nobsyt</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>ui_keyword</string>
+		</dict>
+	</array>
+	<key>version</key>
+	<string>26.0</string>
+	<key>webaddress</key>
+	<string>https://github.com/vitorgalvao/no-bs-yt-workflow/</string>
+</dict>
+</plist>
