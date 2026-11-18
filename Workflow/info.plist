@@ -385,7 +385,7 @@ Set the filter to the types of videos you want to include in the feed and press 
 		</dict>
 	</array>
 	<key>version</key>
-	<string>26.0</string>
+	<string>26.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/vitorgalvao/no-bs-yt-workflow/</string>
 </dict>
